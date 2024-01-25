@@ -19,7 +19,11 @@ app.use(session({
     secret: 'mynextsecret',
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false } //! set to true if  on https
+    cookie: { 
+        secure: false, //! set to true if on https
+        httpOnly: true, // set HttpOnly flag
+        maxAge: 24 * 60 * 60 * 1000 // cookie expiration date, e.g., 1 day
+    }
   }));
 
 
