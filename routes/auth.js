@@ -40,7 +40,10 @@ router.get("/google", [passport.authenticate("google", [ "profile", "email", "ht
 
 router.get("/logout", (req, res) => {
     req.logout();
-    res.redirect(process.env.CLIENT_URL);
+    res.json({
+        error: false,
+        message: 'auth.js: user has successfully logged out'});
+    console.log('auth.js: user has successfully logged out');    
 });
 
 module.exports = router;
